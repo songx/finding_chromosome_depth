@@ -1,10 +1,10 @@
-import pandas as pd
+@author Xiao Song
 
+import pandas as pd
 import numpy as np
 
 
 #read data into dataframe
-
 df1 = pd.read_csv('sample1_depths.txt.gz',compression='gzip', header=0, sep='\t', quotechar='"')
 
 df2 = pd.read_csv('sample2_depths.txt.gz',compression='gzip', header=0, sep='\t', quotechar='"')
@@ -13,7 +13,6 @@ df3 = pd.read_csv('sample3_depths.txt.gz',compression='gzip', header=0, sep='\t'
 
 
 #convert position to sets and find unqiue and common positions
-
 df1_pos = set(df1['Chromosome']+":"+df1['Position'].astype(str))
 
 df2_pos = set(df2['Chromosome']+":"+df2['Position'].astype(str))
@@ -26,7 +25,6 @@ print('2.',len(df1_pos.intersection(df2_pos).intersection(df3_pos)),'positions a
 
 
 #concatenate by chromosome
-
 dfs = pd.concat([df1,df2,df3])
 
 chr1_df = dfs[dfs['Chromosome']=='chr1'].sort_values('Position')
