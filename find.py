@@ -1,5 +1,3 @@
-@author Xiao Song
-
 import pandas as pd
 import numpy as np
 
